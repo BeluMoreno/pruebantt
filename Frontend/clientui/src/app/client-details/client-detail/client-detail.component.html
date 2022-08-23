@@ -1,0 +1,32 @@
+<form >
+  <mat-grid-list cols="1" rowHeight="100px" >
+    <mat-grid-tile>
+      <h5> Información básica </h5>
+    </mat-grid-tile>
+    <ng-template [ngIf]="!success">
+    <mat-grid-tile><mat-error>No existen resultados</mat-error></mat-grid-tile>
+  </ng-template>
+  <ng-template [ngIf]="success"> 
+  <mat-grid-tile>
+        <fieldset>
+          <label for="name">Primer Apellido </label>
+          <br>
+          <input [value]="client.firstName" [readonly]="true" id="name" type="varchar" matInput placeholder="">
+        </fieldset>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <fieldset>
+        <label for="lastName">Segundo Apellido </label>
+        <br>
+        <input  [value]="client.fatherLastName" [readonly]="true" id="lastName" type="varchar" matInput placeholder="" >
+      </fieldset>
+    </mat-grid-tile>
+  </ng-template> 
+    <mat-grid-tile>
+      <div>
+        <button type="submit"  class="btn btn" routerLink="/">Regresar</button>
+      </div>
+  </mat-grid-tile>
+  </mat-grid-list>
+</form>
+

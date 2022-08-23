@@ -1,0 +1,37 @@
+<form [formGroup]="idForm" (ngSubmit)="onSubmit()">
+    <mat-grid-list cols="1" rowHeight="50px">
+        <mat-grid-tile>
+            <label style="color: gray; align-self:flex-end; ; font-size: x-small; margin: 0px;">Todos los campos son obligatorios </label>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-form-field>
+                <label for="documentType">Tipo de documento: </label>
+                <mat-select id="documentType" [(ngModel)]="id.documentType" formControlName="documentType" [errorStateMatcher]="matcher">
+                    <mat-option  value="P" >Pasaporte</mat-option>
+                    <mat-option  value="C" >Cédula de ciudadanía</mat-option>
+                </mat-select>
+            <mat-hint>Todos los campos son obligatorios</mat-hint>
+            <mat-error *ngIf="formControls.documentType.hasError('required')">Campo obligatorio</mat-error>
+            <mat-error *ngIf="formControls.documentType.hasError('pattern') && !selected.hasError('required')">
+                Selección inválida
+            </mat-error>
+            </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-form-field appearance="outline">
+                <label for="documentNumber">Número de documento: </label>
+                <input id="documentNumber" type="number"  [(ngModel)]="id.documentNumber"
+                matInput formControlName="documentNumber" placeholder="" required
+                [ngClass]="{ 'is-invalid': formControls.documentNumber.errors }">
+            <mat-error>Campo obligatorio</mat-error>
+            </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <div>
+            <button type="submit" [disabled]="!idForm.valid" class="btn btn" >Submit</button>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+    
+  </form>
+  

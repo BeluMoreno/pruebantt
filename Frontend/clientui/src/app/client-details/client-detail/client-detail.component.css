@@ -1,0 +1,37 @@
+form {
+  border: 1px solid grey;
+  border-radius: 0.5em;
+  min-width: 80px;
+  max-width: 250px;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: left;
+  align-items: left;
+}
+
+label {
+  font-size: small;
+  color: lightgray;
+}
+
+input {
+  background-color: rgba(155, 155, 155, 0.61);
+  border-radius: 0.5em;
+  border: 0px
+}
+
+button {
+  border: 1px solid #1159a1;
+  background-color: #1159a1;
+  color: #ffffff;
+  padding: 5px 10px;
+  border-radius: 2em;
+}
+
+button:disabled,
+button[disabled]{
+border: 1px solid #999999;
+background-color: #cccccc;
+color: #666666;
+}
+
